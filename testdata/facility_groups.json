@@ -1,0 +1,17 @@
+{
+  "facilityGroups": [
+    {
+      "id": "5",
+      "name": "head office",
+      "code": "Galaxy",
+      "notes": "This is facility group memo.\nYou can write multiple lines.",
+      "parentFacilityGroup": "2",
+      "childFacilityGroups": [
+        {
+          "id": "10"
+        }
+      ]
+    }
+  ],
+  "hasNext": false
+}

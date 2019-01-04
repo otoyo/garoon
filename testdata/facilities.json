@@ -1,0 +1,12 @@
+{
+  "facilities": [
+    {
+      "id": "5",
+      "name": "Room A",
+      "code": "roa",
+      "notes": "This is facility memo.\nYou can write multiple lines.",
+      "facilityGroup": "2"
+    }
+  ],
+  "hasNext": false
+}

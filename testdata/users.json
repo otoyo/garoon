@@ -1,0 +1,10 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "User1",
+      "code": "user1"
+    }
+  ],
+  "hasNext": false
+}

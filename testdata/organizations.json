@@ -1,0 +1,16 @@
+{
+  "organizations": [
+    {
+      "id": "5",
+      "name": "Development Department",
+      "code": "development_department",
+      "parentOrganization": "2",
+      "childOrganizations": [
+        {
+          "id": "10"
+        }
+      ]
+    }
+  ],
+  "hasNext": false
+}

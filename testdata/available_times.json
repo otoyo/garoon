@@ -1,0 +1,19 @@
+{
+  "availableTimes": [
+    {
+      "start": {
+        "dateTime": "2018-08-08T00:00:00+09:00",
+        "timeZone": "Asia/Tokyo"
+      },
+      "end": {
+        "dateTime": "2018-08-08T01:00:00+09:00",
+        "timeZone": "Asia/Tokyo"
+      },
+      "facility": {
+        "id": "1",
+        "code": "F001",
+        "name": "28F conference room"
+      }
+    }
+  ]
+}

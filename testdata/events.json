@@ -1,0 +1,158 @@
+{
+  "events": [
+    {
+      "id": "123",
+      "creator": {
+        "id": "1",
+        "code": "c000001",
+        "name": "Noboru Satoh(Satoh Noboru); Sales Department"
+      },
+      "createdAt": "2017-09-26T06:25:18Z",
+      "updater": {
+        "id": "1",
+        "code": "c000001",
+        "name": "Noboru Satoh(Satoh Noboru); Sales Department"
+      },
+      "updatedAt": "2017-09-26T06:25:18Z",
+      "eventType": "REGULAR",
+      "eventMenu": "conference",
+      "subject": "Weekly conference",
+      "notes": "This is notes.\nYou can write multiple lines.",
+      "visibilityType": "PUBLIC",
+      "useAttendanceCheck": true,
+      "companyInfo": {
+        "name": "Cybozu, Inc.",
+        "zipCode": "103-xxxx",
+        "address": "2-7-1, Nihombashi, Chuo-ku, Tokyo",
+        "route": "Nihombashi Sta. - Ginza Line - Shibuya Sta.",
+        "routeTime": "18",
+        "routeFare": "195",
+        "phone": "03-4306-xxxx"
+      },
+      "attachments": [
+        {
+          "id": "1",
+          "name": "figure.png",
+          "contentType": "image/png",
+          "size": "64251"
+        }
+      ],
+      "start": {
+        "dateTime": "2017-09-27T14:00:00+09:00",
+        "timeZone": "Asia/Tokyo"
+      },
+      "end": {
+        "dateTime": "2017-09-27T14:00:00+09:00",
+        "timeZone": "Asia/Tokyo"
+      },
+      "isAllDay": false,
+      "isStartOnly": false,
+      "originalStartTimeZone": "Asia/Tokyo",
+      "originalEndTimeZone": "Asia/Tokyo",
+      "attendees": [
+        {
+          "id": "1",
+          "code": "c000001",
+          "name": "Noboru Satoh(Satoh Noboru); Sales Department",
+          "type": "USER",
+          "attendanceResponse": {
+            "status": "PENDING",
+            "comment": "I am going to attend the meeting."
+          }
+        }
+      ],
+      "watchers": [
+        {
+          "id": "1",
+          "code": "c000001",
+          "name": "Noboru Satoh(Satoh Noboru); Sales Department",
+          "type": "USER"
+        }
+      ],
+      "facilities": [
+        {
+          "id": "1",
+          "name": "28F conference room",
+          "code": "F001"
+        }
+      ],
+      "facilityUsingPurpose": "Because of the explanation of a new plan.",
+      "facilityReservationInfo": {
+        "additionalProp1": {
+          "type": "SINGLE_LINE_TEXT",
+          "value": "Custom field value"
+        },
+        "additionalProp2": {
+          "type": "SINGLE_LINE_TEXT",
+          "value": "Custom field value"
+        },
+        "additionalProp3": {
+          "type": "SINGLE_LINE_TEXT",
+          "value": "Custom field value"
+        }
+      },
+      "facilityUsageRequests": [
+        {
+          "status": "APPROVED",
+          "facility": {
+            "id": "1",
+            "name": "28F conference room",
+            "code": "F001"
+          },
+          "approvedBy": {
+            "id": "1",
+            "code": "c000001",
+            "name": "Noboru Satoh(Satoh Noboru); Sales Department"
+          },
+          "approvedDateTime": "2017-09-26T06:25:18Z"
+        }
+      ],
+      "repeatInfo": {
+        "type": "EVERY_DAY",
+        "period": {
+          "start": "2017-04-01",
+          "end": "2018-03-31"
+        },
+        "time": {
+          "start": "09:00",
+          "end": "18:00"
+        },
+        "timeZone": "Asia/Tokyo",
+        "isAllDay": false,
+        "isStartOnly": false,
+        "dayOfWeek": "MON",
+        "dayOfMonth": "EOM",
+        "exclusiveDateTimes": [
+          {
+            "start": "2017-12-28T00:00:00+09:00",
+            "end": "2017-12-29T00:00:00+09:00"
+          }
+        ]
+      },
+      "temporaryEventCandidates": [
+        {
+          "end": {
+            "dateTime": "2017-06-06T09:00:00+09:00",
+            "timeZone": "Asia/Tokyo"
+          },
+          "start": {
+            "dateTime": "2017-06-06T10:00:00+09:00",
+            "timeZone": "Asia/Tokyo"
+          },
+          "facility": {
+            "id": "1",
+            "code": "room-a",
+            "name": "ROOM-A"
+          }
+        }
+      ],
+      "additionalItems": {
+        "item": {
+          "value": "string"
+        }
+      },
+      "repeatId": "201712150900"
+    }
+  ],
+  "hasNext": false
+}
