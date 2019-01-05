@@ -7,9 +7,11 @@ import (
 )
 
 type Facility struct {
-	ID   string `json:"id,omitempty"`
-	Name string `json:"name,omitempty"`
-	Code string `json:"code,omitempty"`
+	ID            string `json:"id,omitempty"`
+	Name          string `json:"name,omitempty"`
+	Code          string `json:"code,omitempty"`
+	Notes         string `json:"notes,omitempty"`
+	FacilityGroup string `json:"facilityGroup,omitempty"`
 }
 
 type FacilityGroup struct {
