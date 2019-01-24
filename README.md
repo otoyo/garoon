@@ -18,7 +18,7 @@ import (
 )
 
 func main() {
-        c, err := garoon.NewClient("xxx", "user", "password")
+        c, err := garoon.NewClient("subdomain of .cybozu.com", "user", "password")
         if err != nil {
                 fmt.Printf("%s\n", err)
                 return
