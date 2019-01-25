@@ -18,6 +18,14 @@ type Client struct {
 	Password   string
 }
 
+type ErrorResponse struct {
+	Error struct {
+		ErrorCode string `json:"errorCode"`
+		Message   string `json:"message"`
+		Cause     string `json:"cause"`
+	} `json:"error"`
+}
+
 func NewClient(subdomain, user, password string) (*Client, error) {
 	if len(subdomain) == 0 {
 		return nil, errors.New("missing subdomain")
@@ -63,8 +71,20 @@ func (c *Client) fetchResource(method, path string, data interface{}, out interf
 	}
 
 	defer res.Body.Close()
+	decoder := json.NewDecoder(res.Body)
+
+	if res.StatusCode != http.StatusOK {
+		var errorResponse ErrorResponse
+		decoder.Decode(&errorResponse)
+		return fmt.Errorf(
+			"errorCode: %s, message: %s, cause: %s",
+			errorResponse.Error.ErrorCode,
+			errorResponse.Error.Message,
+			errorResponse.Error.Cause,
+		)
+	}
+
 	if out != nil {
-		decoder := json.NewDecoder(res.Body)
 		decoder.Decode(out)
 	}
 
