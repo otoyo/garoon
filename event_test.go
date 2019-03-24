@@ -15,13 +15,13 @@ func TestFindEvent(t *testing.T) {
 
 	b, err := ioutil.ReadFile("testdata/event.json")
 	if err != nil {
-		t.Fatal()
+		t.Fatalf("Failed to read test data: %v", err)
 		return
 	}
 
 	var event Event
 	if err = json.Unmarshal(b, &event); err != nil {
-		t.Fatal()
+		t.Fatalf("Failed to unmarshal event data: %v", err)
 		return
 	}
 
@@ -43,7 +43,7 @@ func TestSearchEvents(t *testing.T) {
 
 	b, err := ioutil.ReadFile("testdata/events.json")
 	if err != nil {
-		t.Fatal()
+		t.Fatalf("Failed to read test data: %v", err)
 		return
 	}
 
@@ -67,13 +67,13 @@ func TestCreateEvent(t *testing.T) {
 
 	b, err := ioutil.ReadFile("testdata/event.json")
 	if err != nil {
-		t.Fatal()
+		t.Fatalf("Failed to read test data: %v", err)
 		return
 	}
 
 	var event Event
 	if err = json.Unmarshal(b, &event); err != nil {
-		t.Fatal()
+		t.Fatalf("Failed to unmarshal event data: %v", err)
 		return
 	}
 
@@ -95,13 +95,13 @@ func TestUpdateEvent(t *testing.T) {
 
 	b, err := ioutil.ReadFile("testdata/event.json")
 	if err != nil {
-		t.Fatal()
+		t.Fatalf("Failed to read test data: %v", err)
 		return
 	}
 
 	var event Event
 	if err = json.Unmarshal(b, &event); err != nil {
-		t.Fatal()
+		t.Fatalf("Failed to unmarshal event data: %v", err)
 		return
 	}
 
@@ -126,7 +126,7 @@ func TestDeleteEvent(t *testing.T) {
 
 	c, err := NewClient("subdomain", "user", "password")
 
-	if err = c.DeleteEvent("123"); err != nil {
+	if err = c.DeleteEvent(123); err != nil {
 		t.Errorf("Expected success, but error: %s", err)
 		return
 	}

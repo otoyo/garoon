@@ -14,7 +14,7 @@ func TestSearchUsers(t *testing.T) {
 
 	b, err := ioutil.ReadFile("testdata/users.json")
 	if err != nil {
-		t.Fatal()
+		t.Fatalf("Failed to read test data: %v", err)
 		return
 	}
 
@@ -38,7 +38,7 @@ func TestGetUsersByOrganization(t *testing.T) {
 
 	b, err := ioutil.ReadFile("testdata/users.json")
 	if err != nil {
-		t.Fatal()
+		t.Fatalf("Failed to read test data: %v", err)
 		return
 	}
 
@@ -49,7 +49,7 @@ func TestGetUsersByOrganization(t *testing.T) {
 
 	v := url.Values{}
 
-	_, err = c.GetUsersByOrganization("1", v)
+	_, err = c.GetUsersByOrganization(1, v)
 	if err != nil {
 		t.Errorf("Expected success, but error: %s", err)
 		return
