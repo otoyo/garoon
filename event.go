@@ -33,7 +33,7 @@ type AdditionalItems struct {
 }
 
 type Event struct {
-	ID                       string                    `json:"id,omitempty"`
+	ID                       int64                     `json:"id,string,omitempty"`
 	Creator                  Creator                   `json:"creator,omitempty"`
 	CreatedAt                time.Time                 `json:"createdAt,omitempty"`
 	Updater                  Updater                   `json:"updater,omitempty"`
@@ -64,8 +64,8 @@ type Event struct {
 	RepeatID                 string                    `json:"repeatId,omitempty"`
 }
 
-func (c *Client) FindEvent(id string) (*Event, error) {
-	path := fmt.Sprintf("schedule/events/%s", id)
+func (c *Client) FindEvent(id int64) (*Event, error) {
+	path := fmt.Sprintf("schedule/events/%d", id)
 	var event Event
 	if err := c.fetchResource("GET", path, nil, &event); err != nil {
 		return nil, err
@@ -92,7 +92,7 @@ func (c *Client) CreateEvent(event *Event) (*Event, error) {
 }
 
 func (c *Client) UpdateEvent(event *Event) (*Event, error) {
-	path := fmt.Sprintf("schedule/events/%s", event.ID)
+	path := fmt.Sprintf("schedule/events/%d", event.ID)
 	var newEvent Event
 	if err := c.fetchResource("PATCH", path, event, &newEvent); err != nil {
 		return nil, err
@@ -100,8 +100,8 @@ func (c *Client) UpdateEvent(event *Event) (*Event, error) {
 	return &newEvent, nil
 }
 
-func (c *Client) DeleteEvent(id string) error {
-	path := fmt.Sprintf("schedule/events/%s", id)
+func (c *Client) DeleteEvent(id int64) error {
+	path := fmt.Sprintf("schedule/events/%d", id)
 	if err := c.fetchResource("DELETE", path, nil, nil); err != nil {
 		return err
 	}

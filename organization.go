@@ -6,12 +6,12 @@ import (
 )
 
 type Organization struct {
-	ID                 string `json:"id"`
+	ID                 int64  `json:"id,string"`
 	Name               string `json:"name"`
 	Code               string `json:"code"`
 	ParentOrganization string `json:"parentOrganization"`
 	ChildOrganizations []struct {
-		ID string `json:"id"`
+		ID int64 `json:"id,string"`
 	} `json:"childOrganizations"`
 }
 

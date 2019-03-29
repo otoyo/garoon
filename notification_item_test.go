@@ -14,7 +14,7 @@ func TestGetNotificationItems(t *testing.T) {
 
 	b, err := ioutil.ReadFile("testdata/notification_items.json")
 	if err != nil {
-		t.Fatal()
+		t.Fatalf("Failed to read test data: %v", err)
 		return
 	}
 

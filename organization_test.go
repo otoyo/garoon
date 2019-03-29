@@ -14,7 +14,7 @@ func TestGetOrganizations(t *testing.T) {
 
 	b, err := ioutil.ReadFile("testdata/organizations.json")
 	if err != nil {
-		t.Fatal()
+		t.Fatalf("Failed to read test data: %v", err)
 		return
 	}
 

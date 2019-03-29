@@ -6,7 +6,7 @@ import (
 )
 
 type User struct {
-	ID   string `json:"id,omitempty"`
+	ID   int64  `json:"id,string,omitempty"`
 	Code string `json:"code,omitempty"`
 	Name string `json:"name,omitempty"`
 	Type string `json:"type"`
@@ -35,8 +35,8 @@ func (c *Client) SearchUsers(values url.Values) (*UserPager, error) {
 	return &pager, nil
 }
 
-func (c *Client) GetUsersByOrganization(organizationID string, values url.Values) (*UserPager, error) {
-	path := fmt.Sprintf("base/organizations/%s/users?%s", organizationID, values.Encode())
+func (c *Client) GetUsersByOrganization(organizationID int64, values url.Values) (*UserPager, error) {
+	path := fmt.Sprintf("base/organizations/%d/users?%s", organizationID, values.Encode())
 	var pager UserPager
 	if err := c.fetchResource("GET", path, nil, &pager); err != nil {
 		return nil, err

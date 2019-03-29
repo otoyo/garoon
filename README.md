@@ -24,7 +24,7 @@ func main() {
                 return
         }
 
-        ev, err := c.FindEvent("123")
+        ev, err := c.FindEvent(123)
         if err != nil {
                 fmt.Printf("%s\n", err)
                 return

@@ -73,7 +73,7 @@ func TestGetFacilitiesByFacilityGroup(t *testing.T) {
 
 	v := url.Values{}
 
-	_, err = c.GetFacilitiesByFacilityGroup("1", v)
+	_, err = c.GetFacilitiesByFacilityGroup(1, v)
 	if err != nil {
 		t.Errorf("Expected success, but error: %s", err)
 		return

@@ -7,7 +7,7 @@ import (
 )
 
 type Facility struct {
-	ID            string `json:"id,omitempty"`
+	ID            int64  `json:"id,string,omitempty"`
 	Name          string `json:"name,omitempty"`
 	Code          string `json:"code,omitempty"`
 	Notes         string `json:"notes,omitempty"`
@@ -15,13 +15,13 @@ type Facility struct {
 }
 
 type FacilityGroup struct {
-	ID                  string `json:"id"`
+	ID                  int64  `json:"id,string"`
 	Name                string `json:"name"`
 	Code                string `json:"code"`
 	Notes               string `json:"notes"`
 	ParentFacilityGroup string `json:"parentFacilityGroup"`
 	ChildFacilityGroups []struct {
-		ID string `json:"id"`
+		ID int64 `json:"id,string"`
 	} `json:"childFacilityGroups"`
 }
 
@@ -65,8 +65,8 @@ func (c *Client) GetFacilityGroups(values url.Values) (*FacilityGroupPager, erro
 	return &pager, nil
 }
 
-func (c *Client) GetFacilitiesByFacilityGroup(facilityGroupID string, values url.Values) (*FacilityPager, error) {
-	path := fmt.Sprintf("schedule/facilityGroups/%s/facilities?%s", facilityGroupID, values.Encode())
+func (c *Client) GetFacilitiesByFacilityGroup(facilityGroupID int64, values url.Values) (*FacilityPager, error) {
+	path := fmt.Sprintf("schedule/facilityGroups/%d/facilities?%s", facilityGroupID, values.Encode())
 	var pager FacilityPager
 	if err := c.fetchResource("GET", path, nil, &pager); err != nil {
 		return nil, err

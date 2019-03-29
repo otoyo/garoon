@@ -24,7 +24,7 @@ func TestAvailableTimes(t *testing.T) {
 	c, err := NewClient("subdomain", "user", "password")
 
 	a := Attendee{}
-	a.ID = "940"
+	a.ID = 940
 	a.Type = "USER"
 
 	d := DateTimePeriod{}
@@ -32,7 +32,7 @@ func TestAvailableTimes(t *testing.T) {
 	d.End = time.Date(2019, 1, 6, 10, 30, 0, 0, time.Local)
 
 	f := Facility{}
-	f.ID = "45"
+	f.ID = 45
 
 	p := AvailableTimeParameter{}
 	p.TimeRanges = append(p.TimeRanges, d)
