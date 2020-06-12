@@ -30,7 +30,7 @@ func NewClient(subdomain, user, password string) (*Client, error) {
 	if len(subdomain) == 0 {
 		return nil, errors.New("missing subdomain")
 	}
-	baseUrl := fmt.Sprintf("https://%s.cybozu.com/g/", subdomain)
+	baseUrl := fmt.Sprintf("https://%s.cybozu.com/g", subdomain)
 	return NewClientWithBaseUrl(baseUrl, user, password)
 }
 
