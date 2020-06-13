@@ -13,7 +13,7 @@ import (
 
 type Client struct {
 	HttpClient *http.Client
-	Domain     string
+	ApiBase    string
 	User       string
 	Password   string
 }
@@ -30,6 +30,14 @@ func NewClient(subdomain, user, password string) (*Client, error) {
 	if len(subdomain) == 0 {
 		return nil, errors.New("missing subdomain")
 	}
+	baseUrl := fmt.Sprintf("https://%s.cybozu.com/g", subdomain)
+	return NewClientWithBaseUrl(baseUrl, user, password)
+}
+
+func NewClientWithBaseUrl(baseUrl, user, password string) (*Client, error) {
+	if len(baseUrl) == 0 {
+		return nil, errors.New("missing baseUrl")
+	}
 
 	if len(user) == 0 {
 		return nil, errors.New("missing user")
@@ -38,12 +46,9 @@ func NewClient(subdomain, user, password string) (*Client, error) {
 	if len(password) == 0 {
 		return nil, errors.New("missing password")
 	}
-
-	domain := fmt.Sprintf("%s.cybozu.com", subdomain)
-
 	return &Client{
 		HttpClient: &http.Client{},
-		Domain:     domain,
+		ApiBase:    baseUrl,
 		User:       user,
 		Password:   password,
 	}, nil
@@ -92,7 +97,7 @@ func (c *Client) fetchResource(method, path string, data interface{}, out interf
 }
 
 func (c *Client) newRequest(method, path string, body io.Reader) (*http.Request, error) {
-	u, err := url.Parse(fmt.Sprintf("https://%s/g/api/v1/%s", c.Domain, path))
+	u, err := url.Parse(fmt.Sprintf("%s/api/v1/%s", c.ApiBase, path))
 	if err != nil {
 		return nil, err
 	}
@@ -106,7 +111,7 @@ func (c *Client) newRequest(method, path string, body io.Reader) (*http.Request,
 	encodedBasicAuth := base64.StdEncoding.EncodeToString([]byte(basicAuth))
 
 	req.SetBasicAuth(c.User, c.Password)
-	req.Header.Set("Host", fmt.Sprintf("%s:443", c.Domain))
+	req.Header.Set("Host", fmt.Sprintf("%s:443", c.ApiBase))
 	req.Header.Set("Content-Type", "application/json")
 	req.Header.Set("X-Cybozu-Authorization", encodedBasicAuth)
 
